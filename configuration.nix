@@ -79,7 +79,7 @@
       	chromium
       	helix
       	nodejs
-      	ripgrep-all
+      	ripgrep
         xfce.xfce4-notes-plugin
     ];
   };
