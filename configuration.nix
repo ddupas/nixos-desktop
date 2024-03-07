@@ -80,10 +80,26 @@
       	helix
       	nodejs
       	ripgrep-all
+        xfce.xfce4-notes-plugin
     ];
   };
 
-  # Allow unfree packages
+
+fonts.packages = with pkgs; [
+  noto-fonts
+  noto-fonts-cjk
+  noto-fonts-emoji
+  liberation_ttf
+  fira-code
+  fira-code-symbols
+  mplus-outline-fonts.githubRelease
+  dina-font
+  proggyfonts
+  (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
+];
+
+  
+      # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
