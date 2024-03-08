@@ -64,25 +64,27 @@
     #media-session.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.dd = {
+#   nixos-rebuild switch
+      users.users.dd = {
     isNormalUser = true;
     description = "Darrell D";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      	git
-        gh
-      	nushell
-      	chromium
-      	helix
-      	nodejs
-      	ripgrep
-        xfce.xfce4-notes-plugin
-    ];
-  };
+git
+gh
+nushell
+chromium
+helix
+nodejs
+ripgrep
+xfce.xfce4-notes-plugin
+zim
+ nodePackages_latest.vscode-json-languageserver
+ typescript
+gcc
+rustup # rustup default stable 
+];
+};
 
 
 fonts.packages = with pkgs; [
