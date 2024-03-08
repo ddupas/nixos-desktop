@@ -17,7 +17,6 @@
 
   networking.hostName = "desktop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -72,20 +71,24 @@
     packages = with pkgs; [
 git
 gh
-# nushell    use cargo install nu 
 chromium
 helix
 nodejs
-ripgrep
 xfce.xfce4-notes-plugin
 zim
- nodePackages_latest.vscode-json-languageserver
- typescript
-gcc
-rustup # rustup default stable 
+nodePackages_latest.vscode-json-languageserver
+typescript
+ripgrep
 ];
 };
 
+# installing nu on nixos with nix-shell
+# you need a shell.nix file in your current folder
+#
+# see build-nushell.shell.env for nix-shell build instructin
+services.logind.extraConfig = ''
+    RuntimeDirectorySize=4G
+  '';
 
 fonts.packages = with pkgs; [
   noto-fonts
@@ -107,7 +110,6 @@ fonts.packages = with pkgs; [
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-	
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
