@@ -72,7 +72,7 @@
     packages = with pkgs; [
 git
 gh
-nushell
+# nushell    use cargo install nu 
 chromium
 helix
 nodejs
